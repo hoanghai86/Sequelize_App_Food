@@ -14,10 +14,9 @@ const createLike = async (req, res) => {
         //yarn add moment
         // let dateString = moment(new Date()).format("YYYY-MM-DD HH:mm:ss");
         // let date_like = dateString;
-        
+
         let date_like = new Date();
-        console.log(date_like);
-        console.log(typeof date_like)
+
         let data = {
             user_id,
             res_id,
@@ -25,11 +24,11 @@ const createLike = async (req, res) => {
         }
 
         //Thêm 1 dòng dữ liệu vào table
-        await model.like_res.create(modelLike);
+        await model.like_res.create(data);
         successCode(res, data, "Like thành công!")
 
     } catch (error) {
-        errorCode(res, "Lỗi BE hoặc user_id và res_id đã tồn tại!")
+        errorCode(res, JSON.stringify(error.message))
     }
 }
 
@@ -58,7 +57,7 @@ const deleteLike = async (req, res) => {
         successCode(res, data, "Unlike thành công!")
 
     } catch (error) {
-        errorCode(res, "Lỗi BE hoặc kiểm tra lại user_id và res_id xem truyền vào đúng không!")
+        errorCode(res, JSON.stringify(error.message))
     }
 }
 
@@ -71,9 +70,9 @@ const getLike = async (req, res) => {
         })
 
         successCode(res, data, "Lấy danh sách like theo nhà hàng và user thành công!")
-        
+
     } catch (error) {
-        errorCode(res, "Lỗi BE!")
+        errorCode(res, json.stringify(error));
     }
 }
 
