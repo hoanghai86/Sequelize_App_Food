@@ -1,7 +1,6 @@
 const { successCode, errorCode } = require("../config/response");
 const initModel = require("../models/init-models");
 const sequelize = require("../models/index");
-const moment = require("moment/moment");
 const model = initModel(sequelize);
 
 
@@ -72,7 +71,7 @@ const getLike = async (req, res) => {
         successCode(res, data, "Lấy danh sách like theo nhà hàng và user thành công!")
 
     } catch (error) {
-        errorCode(res, json.stringify(error));
+        errorCode(res, JSON.stringify(error));
     }
 }
 
