@@ -17,7 +17,17 @@ const createUser = (req, res) => {
   res.status(200).send("createUser user");
 };
 
+const signUp = async (req, res) => {
+
+}
+
+const login = async (req, res) => {
+
+}
+
 module.exports = {
   getUser,
   createUser,
+  signUp,
+  login
 };
